@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: awx-operator
+  namespace: argocd
+  labels:
+    app: awx-operator
+    cluster: clusetr1
+    project: default
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://ansible.github.io/awx-operator/
+    chart: awx-operator
+    targetRevision: "1.1.0"
+    helm:
+      values: |
+        AWX: 
+          # enable use of awx-deploy template
+          enabled: false
+          name: awx
+          spec:
+            admin_user: admin
+    
+
+  destination:
+    name: clusetr1
+    namespace: awx
