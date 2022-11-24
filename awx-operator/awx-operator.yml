@@ -23,8 +23,3 @@ spec:
           name: awx
           spec:
             admin_user: admin
-    
-
-  destination:
-    name: docker-desktop
-    namespace: awx
