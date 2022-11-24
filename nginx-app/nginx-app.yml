@@ -33,10 +33,10 @@ metadata:
   labels:
     app: nginx-test
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
   - name:  http
-    port:  8083
+    port:  80
     targetPort: 80
     protocol: TCP
   selector:
