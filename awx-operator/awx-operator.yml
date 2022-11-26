@@ -23,8 +23,7 @@ spec:
           spec:
             admin_user: admin
             service_type: LoadBalancer
-            loadbalancer_protocol: https
-            loadbalancer_port: 443
+            loadbalancer_protocol: http
 
   destination:
     server: https://kubernetes.default.svc
