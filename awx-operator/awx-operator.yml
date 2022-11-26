@@ -3,10 +3,10 @@ kind: Application
 metadata:
   name: awx-operator
   namespace: argocd
-#   labels:
-#     app: awx-operator
-#     cluster: cluster-2
-#     project: default
+  labels:
+    app: awx-operator
+    cluster: docker-desktop
+    project: default
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -23,3 +23,8 @@ spec:
           name: awx
           spec:
             admin_user: admin
+    
+
+  destination:
+    name: docker-desktop
+    namespace: awx
