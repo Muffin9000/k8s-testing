@@ -23,18 +23,6 @@ spec:
           spec:
             admin_user: admin
             service_type: nodeport
-            task_extra_env: |
-              - name: GITLAB_TOKEN
-                valueFrom:
-                  secretKeyRef:
-                    name: awx-tokens
-                    key: gitlab-token
-
-              - name: NETBOX-TOKEN
-                valueFrom:
-                  secretKeyRef:
-                    name: awx-tokens
-                    key: netbox-token
 
             extra_volumes: |
               - name: awx-sshkey-volume
