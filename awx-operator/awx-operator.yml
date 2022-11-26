@@ -22,7 +22,9 @@ spec:
           name: awx
           spec:
             admin_user: admin
-            service_type: NodePort
+            service_type: LoadBalancer
+            loadbalancer_protocol: https
+            loadbalancer_port: 443
             task_extra_env: |
               - name: "GITLAB_TOKEN"
                 valueFrom:
