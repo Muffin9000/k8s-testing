@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   labels:
     app: awx-operator
-    cluster: docker-desktop
+    cluster: in-cluster
     project: default
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -23,8 +23,6 @@ spec:
           name: awx
           spec:
             admin_user: admin
-    
-
   destination:
-    name: docker-desktop
+    name: in-cluster
     namespace: awx
