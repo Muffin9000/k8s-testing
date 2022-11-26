@@ -22,18 +22,16 @@ spec:
           name: awx
           spec:
             admin_user: admin
-            ee_resource_requirements:
-              requests:
-                cpu: 50m
-                memory: 64M
-            task_resource_requirements:
-              requests:
-                cpu: 50m
-                memory: 128M
-            web_resource_requirements:
-              requests:
-                cpu: 50m
-                memory: 128M
+            service_type: nodeport
+            task_extra_env: |
+                - name: MYCUSTOMVAR
+                  value: foo
+            web_extra_env: |
+              - name: MYCUSTOMVAR
+                value: foo
+            ee_extra_env: |
+              - name: MYCUSTOMVAR
+                value: foo
             
   destination:
     server: https://kubernetes.default.svc
