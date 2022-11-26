@@ -63,3 +63,6 @@ spec:
               selector:
                 app: nginx-test
 
+ destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-test
