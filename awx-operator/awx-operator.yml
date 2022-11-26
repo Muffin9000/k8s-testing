@@ -17,11 +17,23 @@ spec:
     targetRevision: "1.1.0"
     helm:
       values: |
-        AWX:
-          enabled: false
-          name: awx
-          spec:
-            admin_user: admin
+        apiVersion: awx.ansible.com/v1beta1
+        kind: AWX
+        metadata:
+          name: example-awx
+        spec:
+          ee_resource_requirements:
+            requests:
+              cpu: 50m
+              memory: 64M
+          task_resource_requirements:
+            requests:
+              cpu: 50m
+              memory: 128M
+          web_resource_requirements:
+            requests:
+              cpu: 50m
+              memory: 128M
             
   destination:
     server: https://kubernetes.default.svc
