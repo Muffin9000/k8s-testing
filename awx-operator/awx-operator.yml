@@ -25,8 +25,6 @@ spec:
             service_type: LoadBalancer
             loadbalancer_protocol: https
             loadbalancer_port: 443
-            ingress_type: ingress
-            hostname: awx.keshikslabs.net
             task_extra_env: |
               - name: "GITLAB_TOKEN"
                 valueFrom:
