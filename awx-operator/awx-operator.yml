@@ -27,6 +27,8 @@ spec:
             loadbalancer_port: 443
             service_annotations: |
               environment: prod
+            service_labels: |
+              environment: prod
             ingress_type: ingress
             ingress_annotations: |
               environment: prod
