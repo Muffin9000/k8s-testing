@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   labels:
     app: awx-operator
-    cluster: https://kubernetes.default.svc
+    cluster: in-cluster
     project: default
   finalizers:
     - resources-finalizer.argocd.argoproj.io
