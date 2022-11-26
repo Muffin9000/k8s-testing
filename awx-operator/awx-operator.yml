@@ -22,8 +22,15 @@ spec:
           name: awx
           spec:
             admin_user: admin
+            service_type: LoadBalancer
+            loadbalancer_protocol: https
+            loadbalancer_port: 443
+            service_annotations: |
+              environment: prod
             ingress_type: ingress
-            hostname:
+            ingress_annotations: |
+              environment: prod
+            hostname: awx.keshikslabs.net
             task_extra_env: |
               - name: "GITLAB_TOKEN"
                 valueFrom:
