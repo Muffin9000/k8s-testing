@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: awx-tokens
+  name: nginx-test
   labels:
-    app: awx-tokens
+    app: nginx-test
     cluster: in-cluster
     project: default
   namespace: argocd
@@ -44,25 +44,25 @@ spec:
                   ports:
                   - name: web
                     containerPort: 80
-          service: |-
-            apiVersion: v1
-            kind: Service
-            metadata:
-              name: nginx-test-svc
-              namespace: nginx-test
-              labels:
-                app: nginx-test
-            spec:
-              type: NodePort
-              ports:
-              - name:  http
-                port:  80
-                targetPort: 80
-                nodePort: 30001
-                protocol: TCP
-              selector:
-                app: nginx-test
+        service: |-
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: nginx-test-svc
+            namespace: nginx-test
+            labels:
+              app: nginx-test
+          spec:
+            type: NodePort
+            ports:
+            - name:  http
+              port:  80
+              targetPort: 80
+              nodePort: 30001
+              protocol: TCP
+            selector:
+              app: nginx-test
 
- destination:
+  destination:
     server: https://kubernetes.default.svc
     namespace: nginx-test
