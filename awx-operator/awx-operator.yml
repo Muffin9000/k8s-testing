@@ -27,7 +27,7 @@ spec:
 
             extra_volumes: |
               - name: awx-sshkey-volume
-                secret
+                secret:
                   secretName: awx-sshkey
             
             task_extra_volume_mounts: |
