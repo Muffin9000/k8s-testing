@@ -24,15 +24,26 @@ spec:
             admin_user: admin
             service_type: nodeport
             task_extra_env: |
-                - name: MYCUSTOMVAR
-                  value: foo
-            web_extra_env: |
-              - name: MYCUSTOMVAR
-                value: foo
-            ee_extra_env: |
-              - name: MYCUSTOMVAR
-                value: foo
+                - name: GITLAB_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: awx-tokens
+                      key: gitlab-token
+              - name: NETBOX-TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: awx-tokens
+                    key: netbox-token
+            extra_volumes: |
+              - name: awx-sshkey-volume
+                secret
+                  secretName: awx-sshkey
             
+            task_extra_volume_mounts: |
+              - name: awx-sshkey-volume
+                mountPath: /var/lib/awx/.ssh/id_rsa
+                subPath: awx-sshkey
+              
   destination:
     server: https://kubernetes.default.svc
     namespace: awx
