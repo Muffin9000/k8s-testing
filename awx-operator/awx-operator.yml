@@ -25,6 +25,16 @@ spec:
             service_type: LoadBalancer
             loadbalancer_protocol: http
 
+            extra_volumes: |
+              - name: awx-sshkey-volume
+                secret
+                  secretName: awx-sshkey
+            
+            task_extra_volume_mounts: |
+              - name: awx-sshkey-volume
+                mountPath: /var/lib/awx/.ssh/id_rsa
+                subPath: awx-sshkey
+
   destination:
     server: https://kubernetes.default.svc
     namespace: awx
