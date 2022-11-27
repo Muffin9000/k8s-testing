@@ -26,14 +26,6 @@ spec:
             ingress_type: ingress
             hostname: awx.keshikslab.com
             ingress_tls_secret: awx-server-tls
-            service_annotations: |
-              environment: prod
-            service_labels: |
-              environment: prod
-            ingress_type: ingress
-            ingress_annotations: |
-              environment: prod
-            hostname: awx.example.com
             task_extra_env: |
               - name: "GITLAB_TOKEN"
                 valueFrom:
