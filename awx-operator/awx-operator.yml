@@ -22,9 +22,10 @@ spec:
           name: awx
           spec:
             admin_user: admin
-            service_type: ClusterIP
+            service_type: LoadBalancer
             ingress_type: ingress
-            hostname: awx.keshikslabs.net
+            hostname: awx.keshikslab.com
+            ingress_tls_secret: awx-server-tls
             service_annotations: |
               environment: prod
             service_labels: |
