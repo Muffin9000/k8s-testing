@@ -22,7 +22,7 @@ spec:
           name: awx
           spec:
             admin_user: admin
-            service_type: ClusterIp
+            service_type: ClusterIP
             ingress_type: ingress
             hostname: awx.keshikslabs.net
             service_annotations: |
