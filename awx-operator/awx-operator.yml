@@ -23,6 +23,7 @@ spec:
           spec:
             admin_user: admin
             ingress_type: ingress
+            ingress_class_name: nginx
             hostname: keshikslab.com
             ingress_tls_secret: awx-server-tls
             task_extra_env: |
