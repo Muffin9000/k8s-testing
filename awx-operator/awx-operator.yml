@@ -22,7 +22,6 @@ spec:
           name: awx
           spec:
             admin_user: admin
-            service_type: LoadBalancer
             ingress_type: ingress
             hostname: awx.keshikslab.com
             ingress_tls_secret: awx-server-tls
