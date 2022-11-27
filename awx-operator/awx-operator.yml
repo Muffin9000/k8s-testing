@@ -22,9 +22,9 @@ spec:
           name: awx
           spec:
             admin_user: admin
-            service_type: LoadBalancer
-            loadbalancer_protocol: https
-            loadbalancer_port: 8443
+            service_type: ClusterIp
+            ingress_type: ingress
+            hostname: awx.keshikslabs.net
             service_annotations: |
               environment: prod
             service_labels: |
