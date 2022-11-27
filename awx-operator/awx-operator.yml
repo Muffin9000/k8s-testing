@@ -23,7 +23,7 @@ spec:
           spec:
             admin_user: admin
             ingress_type: ingress
-            hostname: awx.keshikslab.com
+            hostname: keshikslab.com
             ingress_tls_secret: awx-server-tls
             task_extra_env: |
               - name: "GITLAB_TOKEN"
