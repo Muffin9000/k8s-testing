@@ -49,6 +49,14 @@ spec:
               - name: awx-sshkey-volume
                 mountPath: /var/lib/awx/.ssh/id_rsa
                 subPath: awx-sshkey
+            task_extra_volume_mounts: |
+              - name: awx-sshkey-volume
+                mountPath: /var/lib/awx/.ssh/id_rsa
+                subPath: awx-sshkey
+            web_extra_volume_mounts: |
+              - name: awx-sshkey-volume
+                mountPath: /var/lib/awx/.ssh/id_rsa
+                subPath: awx-sshkey
                 
 
   destination:
