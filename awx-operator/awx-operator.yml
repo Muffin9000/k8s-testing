@@ -27,37 +27,14 @@ spec:
             hostname: awx.keshikslab.com
             ingress_tls_secret: awx-server-tls
             task_extra_env: |
-              - name: "GITLAB_TOKEN"
-                valueFrom:
-                  secretKeyRef:
-                    name: awx-tokens
-                    key: gitlab-token
-
               - name: "NETBOX_TOKEN"
                 valueFrom:
                   secretKeyRef:
                     name: awx-tokens
                     key: netbox-token
-
-            extra_volumes: |
-              - name: awx-sshkey-volume
-                secret:
-                  secretName: awx-sshkey
-                  defaultMode: 0400
-            
-            ee_extra_volume_mounts: |
-              - name: awx-sshkey-volume
-                mountPath: /var/lib/awx/.ssh/id_rsa
-                subPath: awx-sshkey
-            task_extra_volume_mounts: |
-              - name: awx-sshkey-volume
-                mountPath: /var/lib/awx/.ssh/id_rsa
-                subPath: awx-sshkey
-            web_extra_volume_mounts: |
-              - name: awx-sshkey-volume
-                mountPath: /var/lib/awx/.ssh/id_rsa
-                subPath: awx-sshkey
-                
+                    
+              - name: "NETBOX_API"
+                value: "SOMETHING"
 
   destination:
     server: https://kubernetes.default.svc
