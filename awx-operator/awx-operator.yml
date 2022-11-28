@@ -45,7 +45,7 @@ spec:
                   secretName: awx-sshkey
                   defaultMode: 0400
             
-            task_extra_volume_mounts: |
+            ee_extra_volume_mounts: |
               - name: awx-sshkey-volume
                 mountPath: /var/lib/awx/.ssh/id_rsa
                 subPath: awx-sshkey
