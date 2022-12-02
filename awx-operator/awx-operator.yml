@@ -14,13 +14,14 @@ spec:
   source:
     repoURL: https://ansible.github.io/awx-operator/
     chart: awx-operator
-    targetRevision: "1.1.0"
+    targetRevision: "1.1.1"
     helm:
       values: |
         AWX:
           enabled: true
           name: awx
           spec:
+            ipv6_disabled: true
             service_type: LoadBalancer
             loadbalancer_protocol: https
             loadbalancer_port: 80
