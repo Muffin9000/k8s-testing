@@ -24,7 +24,7 @@ spec:
             ipv6_disabled: true
             service_type: LoadBalancer
             loadbalancer_protocol: https
-            loadbalancer_port: 80
+            loadbalancer_port: 8080
             admin_user: admin
             ingress_type: ingress
             ingress_class_name: nginx
