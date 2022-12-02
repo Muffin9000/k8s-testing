@@ -21,6 +21,9 @@ spec:
           enabled: true
           name: awx
           spec:
+            service_type: LoadBalancer
+            loadbalancer_protocol: https
+            loadbalancer_port: 80
             admin_user: admin
             ingress_type: ingress
             ingress_class_name: nginx
