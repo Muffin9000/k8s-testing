@@ -22,9 +22,7 @@ spec:
           name: awx
           spec:
             ipv6_disabled: true
-            service_type: LoadBalancer
-            loadbalancer_protocol: https
-            loadbalancer_port: 8080
+            service_type: ClusterIP
             admin_user: admin
             ingress_type: ingress
             ingress_class_name: nginx
