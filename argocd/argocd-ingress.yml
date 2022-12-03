@@ -2,16 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    #nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
-    # kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # appprotect.f5.com/app-protect-policy: "false"
+    # nginx.org/hsts-behind-proxy: "true"
+    # nginx.org/redirect-to-https: "true"
+    # nginx.org/hsts-include-subdomains: "true"
     acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
   labels:
   name: argocd-ingress
   namespace: argocd
@@ -25,7 +21,7 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  number: 80
+                  number: 443
             path: /
             pathType: Prefix
   tls:
