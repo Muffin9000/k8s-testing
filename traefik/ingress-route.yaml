@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: ingressroutetcp
+  namespace: traefik
+spec:
+  entryPoints:
+  - web
+  - websecure
+  routes:
+  - match: HostSNI(`keshikslabs.com`)
+    priority: 10
+    services:
+    - name: your-service
+      port: 80
+  tls:
+    passthrough: true
