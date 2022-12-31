@@ -1,3 +1,5 @@
 Chart.lock
 *.lock
 charts/
+.*
+key.json

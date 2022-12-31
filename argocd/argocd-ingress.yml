@@ -12,7 +12,7 @@ metadata:
   name: argocd-ingress
   namespace: argocd
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik-external
   rules:
     - host: argocd.keshikslab.com
       http:
@@ -27,4 +27,4 @@ spec:
   tls:
     - hosts:
         - argocd.keshikslab.com
-      secretName: argocd-server-tls
+      secretName: letsencrypt-staging-tls

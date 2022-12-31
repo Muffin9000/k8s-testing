@@ -2,10 +2,13 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: selfsigned-cert
-  namespace: cert-manager-test
+  namespace: default
 spec:
+  commonName: "*.keshikslab.com"
   dnsNames:
-    - keshikslabs.com
-  secretName: selfsigned-cert-tls
+    - "keshikslab.com"
+    - "*.keshikslab.com"
+  secretName: letsencrypt-staging-tls
   issuerRef:
-    name: selfsigned
+    name: letsencrypt-staging
+    kind: ClusterIssuer
