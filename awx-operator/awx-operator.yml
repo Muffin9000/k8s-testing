@@ -24,9 +24,9 @@ spec:
             ipv6_disabled: true
             service_type: LoadBalancer
             admin_user: admin
-            ingress_type: route
-            route_host: awx.keshikslab.com
-            route_tls_secret: letsencrypt-staging-tls
+            ingress_type: ingress
+            hostname: awx.keshikslab.com
+            ingress_tls_secret: letsencrypt-staging-tls
   destination:
     server: https://kubernetes.default.svc
     namespace: awx
