@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://ansible.github.io/awx-operator/
     chart: awx-operator
-    targetRevision: "1.1.1"
+    targetRevision: "latest"
     helm:
       values: |
         AWX:
@@ -22,22 +22,12 @@ spec:
           name: awx
           spec:
             ipv6_disabled: true
-            service_type: ClusterIP
+            service_type: LoadBalancer
             admin_user: admin
             ingress_type: ingress
-            ingress_class_name: nginx
+            ingress_class_name: traefik-external
             hostname: awx.keshikslab.com
-            ingress_tls_secret: awx-server-tls
-            task_extra_env: |
-              - name: "NETBOX_TOKEN"
-                valueFrom:
-                  secretKeyRef:
-                    name: awx-tokens
-                    key: netbox-token
-                    
-              - name: "NETBOX_API"
-                value: "SOMETHING"
-
+            ingress_tls_secret: letsencrypt-staging-tls
   destination:
     server: https://kubernetes.default.svc
     namespace: awx

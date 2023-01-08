@@ -11,4 +11,4 @@ spec:
               name: gcpsm-secret                        
               key: secret-access-credentials
               namespace: default
-        projectID: fast-chess-362509
+        projectID: ${PROJECT_ID}

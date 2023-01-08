@@ -4,10 +4,10 @@ metadata:
   name: selfsigned-cert
   namespace: default
 spec:
-  commonName: "*.keshikslab.com"
+  commonName: "*.${MY_DOMAIN}"
   dnsNames:
-    - "keshikslab.com"
-    - "*.keshikslab.com"
+    - "${MY_DOMAIN}"
+    - "*.${MY_DOMAIN}"
   secretName: letsencrypt-staging-tls
   issuerRef:
     name: letsencrypt-staging
