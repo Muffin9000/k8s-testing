@@ -12,7 +12,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.github.io/
+    repoURL: http://charts.gitlab.io/
     chart: gitlab
     targetRevision: "6.7.1"
     helm:
