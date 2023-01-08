@@ -14,7 +14,6 @@ spec:
   source:
     repoURL: https://ansible.github.io/awx-operator/
     chart: awx-operator
-    targetRevision: "latest"
     helm:
       values: |
         AWX:
