@@ -48,7 +48,9 @@ spec:
             https: true
             externalIP:
             ssh: ~
-            gitlab: {}
+            gitlab: 
+              name: gitlab.keshikslab.com
+              https: true
             minio: {}
             registry: {}
             tls: {}
@@ -61,7 +63,7 @@ spec:
             apiVersion: ""
             configureCertmanager: false
             provider: traefik
-            # class:
+            class: none
             annotations: {}
             enabled: true
             tls: {}
