@@ -26,7 +26,6 @@ spec:
             admin_user: admin
             ingress_type: ingress
             hostname: awx.keshikslab.com
-            ingress_tls_secret: letsencrypt-staging-tls
   destination:
     server: https://kubernetes.default.svc
     namespace: awx
