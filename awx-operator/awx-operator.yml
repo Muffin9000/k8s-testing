@@ -25,9 +25,8 @@ spec:
             service_type: LoadBalancer
             admin_user: admin
             ingress_type: route
-            ingress_class_name: traefik
-            hostname: awx.keshikslab.com
-            ingress_tls_secret: letsencrypt-staging-tls
+            route_host: awx.keshikslab.com
+            route_tls_secret: letsencrypt-staging-tls
   destination:
     server: https://kubernetes.default.svc
     namespace: awx
