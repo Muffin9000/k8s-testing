@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: awx-operator
+  name: cert-manager
   namespace: argocd
   labels:
-    app: awx-operator
+    app: cert-manager
     cluster: in-cluster
     project: default
   finalizers:
