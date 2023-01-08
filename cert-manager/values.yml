@@ -1,11 +1,32 @@
-insallCRDs: false
-replicaCount: 2
-extraArgs:
-  - --dns01-recursive-nameservers=8.8.8.8:53,8.8.4.4:53
-  - --dns01-recursive-nameservers-only
-podDnsPolicy: None
-podDnsConfig:
-  nameservers:
-    - "8.8.8.8"
-    - "8.8.4.4"
-
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: awx-operator
+  namespace: argocd
+  labels:
+    app: awx-operator
+    cluster: in-cluster
+    project: default
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://charts.jetstack.io
+    chart: cert-manager
+    targetRevision: "1.10.1"
+    helm:
+      values: |
+        insallCRDs: false
+        replicaCount: 2
+        extraArgs:
+          - --dns01-recursive-nameservers=8.8.8.8:53,8.8.4.4:53
+          - --dns01-recursive-nameservers-only
+        podDnsPolicy: None
+        podDnsConfig:
+          nameservers:
+            - "8.8.8.8"
+            - "8.8.4.4"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
