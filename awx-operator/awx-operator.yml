@@ -24,7 +24,7 @@ spec:
             ipv6_disabled: true
             service_type: LoadBalancer
             admin_user: admin
-            ingress_type: ingress
+            ingress_type: route
             ingress_class_name: traefik-external
             hostname: awx.keshikslab.com
             ingress_tls_secret: letsencrypt-staging-tls
