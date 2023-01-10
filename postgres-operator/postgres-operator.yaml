@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/zalando/postgres-operator.git
-    path: charts/posgres-operator
+    path: charts/postgres-operator
     targetRevision: v1.8.2
     helm:
       values: |
@@ -465,4 +465,4 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: cert-manager
+    namespace: postgres
